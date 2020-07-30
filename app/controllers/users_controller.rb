@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if counts(@user.pets) != 0
+      @pets = current_user.pets.order(id: :desc).page(params[:page])
+    end
   end
 
   def new
@@ -16,7 +19,8 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
-      redirect_to @user
+      # redirect_to @user
+      redirect_to login_url
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new

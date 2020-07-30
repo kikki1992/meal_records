@@ -1,1 +1,4 @@
-<h1>families</h1>
+  <% if logged_in? %>
+  <h1> <%= current_user.name %>'s Families <h1>
+  <%= render 'pets/pets', pets: @pets %>
+  <% end %>

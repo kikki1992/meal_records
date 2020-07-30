@@ -1,0 +1,21 @@
+<div class="container" id="pets_index">
+  <div class="row">
+    <table class="col-8 table table-bordered">
+      <th class="text-center">Name</th>
+      <th class="text-center">Animals_kind</th>
+      <th class="text-center">birthday</th>
+
+  <% if !!pets %>
+    <% pets.each do |pet| %>
+     <tr>
+        <td class="text-center"><%= link_to pet.name, pet %></td>
+        <td class="text-center"><%= pet.animals_kind %></td>
+        <td class="text-center"><%= pet.birthday %></td>
+      </tr>
+     <% end %>
+    <% end %>
+    </table>
+  </div>
+  <%= link_to 'ペットの追加', new_pet_path, class: 'btn btn-lg btn-primary' %>
+   
+</div>

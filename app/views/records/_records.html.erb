@@ -1,0 +1,36 @@
+<div class="container" id="records_index">
+  <div class="row">
+    <div class="mt-10 col-10">
+      <canvas id="myChart" width="600" height="400"></canvas> 
+      <script>draw_graph();</script>
+    </div>
+    <table class="col-10 table " style="margin: 15px;">
+
+      <th class="text-center">food_name</th>
+      <th class="text-center">food_amount [g]</th>
+      <th class="text-center">Weight [g]</th>
+      <th class="text-center">date</th>
+      
+      
+    <% if !!records %>
+      <% records.each do |record| %>
+
+        
+      <tr>
+        <td class="text-center"><%= record.food_name %></td>
+        <td class="text-center"><%= record.food_amount %></td>
+        <td class="text-center"><%= record.weight %></td>
+        <td class="text-center"><%= record.date %></td>
+        
+        <%  @record = record.id %>
+        <td class='text-center'><%= link_to "削除", record_path(@record), method: :delete, data: { confirm: "本当によろしいですか?" }, class: 'btn btn-danger btn-sm' %></td>
+        
+      </tr>
+      
+      
+      <% end %>
+    <% end %>
+  </table>
+ 
+  </div>
+</div>

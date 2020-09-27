@@ -3,6 +3,7 @@ class RecordsController < ApplicationController
   end
 
   def show
+
   end
 
   def new
@@ -21,6 +22,14 @@ class RecordsController < ApplicationController
       flash.now[:danger] = 'recordの登録に失敗しました。'
       render :new
     end
+  end
+  
+  def destroy
+    @record = Record.find(params[:id])
+    @record.destroy
+
+    flash[:success] = 'recordのデータは正常に削除されました'
+    redirect_back(fallback_location: root_path)
   end
   
   private

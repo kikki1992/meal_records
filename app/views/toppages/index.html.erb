@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <h1><%= current_user.name %>'s Families<h1>
+  <h1><%= current_user.name %>の家族一覧<h1>
   <%= render 'pets/pets', pets: @pets %>
   
 <% else %>

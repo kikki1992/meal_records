@@ -7,6 +7,12 @@
 
     <%= form_with(model: @pet, local: true) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="field">
+        <%= f.label :img %>
+        <%= f.file_field :img %>
+      </div>
+
       <div class="form-group">
         <%= f.label :name, 'Name' %>
         <%= f.text_field :name, class: 'form-control' %>
